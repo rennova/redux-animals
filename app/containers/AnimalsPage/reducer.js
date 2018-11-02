@@ -12,14 +12,13 @@
 import { fromJS } from 'immutable';
 import { ACTIONS_LIST } from './constants';
 
-
 const initState = fromJS({
-  list : [],
-  current : {}
+  list: [],
+  current: {}
 });
 
 export default function animalsReducer(state = initState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case ACTIONS_LIST.ANIMALS_GET_SINGLE:
       return state.set('current', action.current);
     case ACTIONS_LIST.ANIMALS_GET_LIST:

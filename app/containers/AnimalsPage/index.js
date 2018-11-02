@@ -6,11 +6,11 @@ import injectReducer from 'utils/injectReducer';
 
 import reducer from './reducer';
 import AnimalsPage from './AnimalsPage';
-import { getSingleAnimal, tryGetList } from './actions'
-import { makeSelectList, makeSelectCurrent } from './selectors'
+import { getSingleAnimal, tryGetList } from './actions';
+import { makeSelectList, makeSelectCurrent } from './selectors';
 
 const mapDispatchToProps = (dispatch) => ({
-  getSingleAnimal: (evt) => dispatch(getSingleAnimal(evt)),
+  getSingleAnimal: (evt) => dispatch(getSingleAnimal(evt.target.innerHTML)),
   tryGetList: (evt) => dispatch(tryGetList(evt))
 });
 
@@ -19,8 +19,14 @@ const mapStateToProps = createStructuredSelector({
   current: makeSelectCurrent()
 });
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
 const withReducer = injectReducer({ key: 'animals', reducer });
 
-export default compose(withReducer, withConnect)(AnimalsPage);
+export default compose(
+  withReducer,
+  withConnect
+)(AnimalsPage);
 export { mapDispatchToProps };
