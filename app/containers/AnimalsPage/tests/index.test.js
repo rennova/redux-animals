@@ -16,7 +16,7 @@ describe('<AnimalsPage />', () => {
     expect(submitSpy).toHaveBeenCalled();
   });
 
-  it('should render the copyright notice', () => {
+  it('should render the list of animals', () => {
     const wrapper = shallow(
       <div>
         <div className="animal">Cat</div>
@@ -37,7 +37,7 @@ describe('<AnimalsPage />', () => {
         expect(result.getSingleAnimal).toBeDefined();
       });
 
-      it('should dispatch changeUsername when called', () => {
+      it('should dispatch getSingleAnimal when called', () => {
         const dispatch = jest.fn();
         const result = mapDispatchToProps(dispatch);
         const name = '';

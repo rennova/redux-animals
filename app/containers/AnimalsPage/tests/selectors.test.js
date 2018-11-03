@@ -29,7 +29,7 @@ describe('makeSelectList', () => {
 
 describe('makeSelectCurrent', () => {
   const currentSelector = makeSelectCurrent();
-  it('should select the current object', () => {
+  it('should select the current animal', () => {
     const current = fromJS({
       title: 'Cat',
       say: 'Hola!'
